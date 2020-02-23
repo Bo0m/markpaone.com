@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="title" content="Mark Paone" />
+		<meta name="description" content="Mark Paone Personal Website" />
+		<meta name="author" content="Mark Paone" />
+		<meta
+			name="viewport"
+			content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
+		/>
+		<title>Mark Paone</title>
+		<link rel="icon" type="image/x-icon" href="favicon.ico" />
+		<% if(htmlWebpackPlugin.files.chunks.head) { %>
+		<link
+			href="<%= htmlWebpackPlugin.files.chunks.head.css %>"
+			rel="stylesheet"
+		/>
+		<script src="<%= htmlWebpackPlugin.files.chunks.head.entry %>"></script>
+		<% } %>
+	</head>
+	<body>
+		<div id="container">
+			<div id="preload">
+				<div class="row">
+					<h4 id="fallbackmsg">
+						Hi! If you're reading this it means your browser doesn't
+						support WebGL or has JavaScript disabled. For the full
+						experience, please visit this website in a modern
+						browser with JavaScript enabled.
+					</h4>
+					<h4 id="loadingmsg" class="hidden">
+						Loading...
+					</h4>
+				</div>
+				<script>
+					if (Modernizr.canvas && Modernizr.webgl) {
+						document.getElementById('fallbackmsg').className =
+							'hidden';
+						document.getElementById('loadingmsg').className = '';
+					}
+				</script>
+				<div id="fallback-buttons" class="row">
+					<span class="tile">
+						<a href="mailto:mark@paone.co">
+							<img
+								src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAMAAACdt4HsAAABDlBMVEUAAADkbGHy8fHldm3hYFW1QjetNijeWU7cUETeaV7v5+bghHveYlfv5OTif3jy8vLj4+Pv7+/q6urm5ubdTUHdSz/cSTzDOyvo6OjeUETeU0bi4uLg4ODVTD/eVEjfVkrUSTzVSj3URzrCOirx8fHBOyze3t7APC3MzMzDw8PQ0NDWT0LWTkHOzs7Z2dnGxsbHx8e/OyvJycnV1dXS0tLVT0O9PC3b29ulOSzAwMCyOy3SUEO4Oy2rOi27u7u7ubnQT0O6RTq+vb29lpPISDzARjvx8PDu5eTqzMrlram9fXe6ZV65U0rLT0TBT0TNTkOvSkG7SkDBr62+rKrCnJnBg365fXesSUDWSj3PRzs+jw0DAAAAD3RSTlMA/vn+/v7++fnz8fDw7+yK+wqcAAACjklEQVRYw+2SZ1viQBRG1e3VBEIEZ4Rd1yVFISFSRenY2/bd//9H9s4llxkSIvjVh/P9nPemrK1Y8YR4VigUNpdkL8Q0zXXy1wuCt48JfDAFz8NAYUJ++YAZEgnkN5YLbJhzA3ng1TKB12ZCAFkcyJixQBt1ZHv7zcP++4wSaFLg7jZPAeAhPwOQ3m+ehIFa7+aefMG7JP1jRkDzzZMjCtR6d39uhU8kz1NgLPzjMLBfq7V790PwidxFXL/IKIEh6EfHdQpgodO9kYFcLuobij9yfPQrFABqB8VW9zf5gnNVPzeUwKUXlECvywAWGG8Num3yBco8+MQ/x7erZeFbMiDQGHdanSvhE2cT/cxQAldOUDps8LplWRUKHCCaxpgHif2cwmReBv46nu2Wi1xD/2skAAnfcwbXSsA4PVX9a8cvHQo/jf5MYEejQqujBAj0xTycz7R0GnxrGthBtLAgEt/m+f3pPGCBHw8gQRB4Tpd8GRiI+TLOAxUrHiBs2w48OELxcd7GefAF1twAFQDf+WEoge9e4JKPoL8VDRAlPMIZkz/Gf6dRZORns+jHArIAQGJoID/Dt6f4WfTjAVlwRcJ3RoYxcjyc59rUB9CPBySuW3XdUuBd/vIDMV9k0hegT4HPiDZLFQt22XVxXvGRrcSALEDAbTTKoNP50k8tDOBTsCLCI34qm1omwDkHFWBM+qiDvzjAeFrXJzqL7UcDn5CIv6kDSX5ygHSuT5jnLw5wntKJqE+g/2VegDGO5xOz/qIAA53OJ1Rfgr4a2N1lCM0rSF8BfQrsIqG/p8cgf0EAdU2fB/kK4McDvEjnRyFfgj4F+hgAX08E/Vjg5VrICxHAj59INCD85tqKFU+H/8ei8M31p5SnAAAAAElFTkSuQmCC"
+								alt="Email"
+							/>
+						</a>
+					</span>
+					<span class="tile">
+						<a href="tel:7329034123">
+							<img
+								src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAMAAACdt4HsAAAAtFBMVEUAAAA0pJY/pZs1opYKenEHdm0Hd288pJo/qJ0JjX8Oj4IGi3729vYMjoEQkIMBiXsUkoUSkYQXk4YGin0Dinzh4eEChXgDg3cNgncTkIMOgXYRgncSgHYBhnkHfXIHgXYSfnQEhnoWe3MKeW8Le3EZdm8PjIALin0IhHgXf3YFgXULh3saenERhXoLgHQRe3Ls7e0YeXAId25DqJ46o5kQa2OQurUIdGwWc2vf6OjP2NcTbGXV3Qa6AAAACXRSTlMASUFA4N+vTEl/mbu2AAACxklEQVRYw92U2WKqMBBA09u7GcUNBcUFEeoCirZq7/b//3VnJoRQkhbUt562vp2TmRRkn5mfp16v1263OXB+uNb+0u32yMcCYT1eoZ+6QA+RASxY57p+v98tFjIfaNQ7vg9goLQCFc41jkdMK6APVPoq0NUDSKVP6BPQBkRNXyTIr1/o56A8Ho8Lt2jlgWaz+nwCfUL5IvBuQfp9cAWFKyBkoGKAlmS74uBrG7xTOOUD5IHddswl5OeFM9Pp4u44v5rgdbflbT2AmN4/8pE/aoTlXl+BeNQHUIwLgS0UtH+CcYSeKfC02073xoBd9n/Ak2MOUEH6KvBQHgADkMAnsBTAgroBGbD1AEGBrfSflxiY7EsDYGBQCrQLgfY48yEwnS4mk2lSvgFbD0AB/sQnz/0FnA94ifRFAXwtQGACWYE/PD6BP5l64I+85M0ATXNAwcEfDikAYGGUvL2BjwOcr4YIruCBP0IS6ZsDnCudAgSO4Anf85LiHeoBCQQQUThSYZSRoIu/6HcMAYXFV0tROCw8DHhA6m/waDFAxxxQBWv1PCSgALQEogDnVwe4tf6bF1KyqRAMbPIhUDnC+nWYrdHKCX0IkP/dFLCyDwvAwm9RaCmieWB3Bh21gWJhWTz7yb+BRaFVIJz7AdgA07DKQGDtSV8FXAcLL3pgoQWocCgFYted0QA6yiy8/etRFJUmcJ2AAjqNDLJlwd6kUfTvmAdcx3WcGTMyamjgw79J03kUReHlcolgAwdhZow+zODHfjonMEB+nYJ69wIfiP04jl3Amf1i9QrNnMB1Ny6i3YCGEIWtsIPMRz33zRyaOjZs4WwcYuZ8YxWY/MEggOEBvIBKoqKLNhEIf8bqEAqbCuR3gKCuT3ztYEDaojAD2DWEIfpkC8C/HrAV7AYK+gu7hXt9FWA3cq/P5Ph3BUJ2Bzj9XcD0n53/5KyIyLOzieQAAAAASUVORK5CYII="
+								alt="Phone"
+							/>
+						</a>
+					</span>
+					<span class="tile">
+						<a href="MarkPaoneResumeJan2020.pdf">
+							<img
+								src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAMAAACdt4HsAAAA/FBMVEUAAAADZrYDaLYAESIHZrMJetcGYKcAAAAJgeMHLVIAFicKhesKhesAABwHft0AGSkJhesJeNYKhesJfdwAFCYEVZsEL1gAIT0KhesKhOsJgucJgOIFVpgKhesJhOkJhOYJg+YJeNQHbLsFTYkERXoAJkIAM3AAI0UKhesKhesKhOgJf98Jf+AIe9gJeNQGeNEId9MHbsEGXKEFVZYGN2YAME4JhOoJetcJgucKedgHb8cHXKQGZ7IHZ7YFUpIESooEPm4EPW0EQncJetcKguQKdMwKeNkIft8IbMYHX6cHXaIHY7MFW6wHUpMDWp8EW6gEVZcFRHIANU8KhesZ/hcPAAAAU3RSTlMAWlsOgNdaAcQiC/3lA68f88X5sQdUJRLw4tXJYffY0czFgEpEHBkX9e3gxLywraCZj2pqLCnc0MW6l353bVxBPTo2wLuhoJaGdG5sX05KRkIxHe4IXhcAAAJfSURBVFjD3Vdpd9owEFwgrYllt44xGHOXoxwhBwmkSXP3vo/o//+XrK3IOJhoEZ94mQd4JbNjzay0PCCGfeDyFeEe2JBGlWugCimUuBZKKYKiHkExRZDVI8imCDJ6BBk1gfPlz2z73+EAw3GhUKjLeYaDT4JAJaF+ZT9Uts35EV4/J83/ISQoCEY+xPjAKvh5K24ItgblwdCMqnp0fm0DdDnDoce4QB/AZJQHMxz0o8cMuv+ZKFhF3CobYbkJD/YwzpWlafjexYnvYriP4S5VxhLGY54A8wB6Iuyir0xRRrlKnz/CNYDh4DWy44YTEs4wPJap84XvhcEJBvvUTjyX356jbgN0wqCNCgbUTqxh+I4/xhTAfLBnyikJV0sIDnFuJFbynjxMxxh+XCAYorHfonoaQ+IwiadN+ALuAGaRuh4nJVTCA5BMlu654T7eovqB2Da2s0AQAEDLQSHBCv3gN8a1uP1yAR/gZ0HuMOIsBAbEZjfNRmxtvyOJqX5wAYibluM0fhngWbEzNspYrSd2orFhRJ9nXJ6CuC3QPfHCkJO5fLKLdzjlgYRVyyGH4bddOZN/ixjrtHXHshzdtq6FzKb/Mq0vodzLEeiVlRKaQKKplhC8IBA8+yqsLmFzPZhsEZioPTgFEqdKCezyJYFLtrFlJFfATt7s7MSvv9oEVR8UoCWMbPBeJ+DprqALt25i+Mp4gsCZbi+HDRVlvpTQgidhqfOlhGZ+OUywVPm0B0igzocsSaDI1yCY5+tLkPnrE8j8dSWo86FIEqjzoUQTYL4KVYqAyCf+/pvwdXn+PWQkx2RQUpK+AAAAAElFTkSuQmCC"
+								alt="Resume"
+							/>
+						</a>
+					</span>
+					<span class="tile">
+						<a
+							href="https://www.facebook.com/mpaone"
+							target="_blank"
+						>
+							<img
+								src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAMAAACdt4HsAAABEVBMVEUAAABTmvXx+P4Yd/IYd/Mqg/MYd/IXePMYd/MYd/EYd/KlyvoYd/IYdvIXd/MYePMXduggefkXePMYd/MAjP/9/v/6/P4Yd/IYdvIZd/Iadfofe/MYd/IYd/IYd/IYd/IYd/MZd/MYd/MYd/IYd/UadPMYeO0YdPMcc/H6/P8uhfPz+P5BkPVtqfehx/r3+v////+fxvkYdvIYdvH///8Yd/MYd/IYePMZd/IYd/IXd/IXdvIYd/AXd/KFt/hkpPZgofYjfvI2ifR6sfd6sPfl7/3G3vwYd/H////b6/261vv///////9ZnfYthPMadvIZd/MbdPIbdvEadvIYd/L///8rgvN7sfc0h/NNlvWFt/iRptJiAAAAVHRSTlMA9fH9+/pbRPfMh+Lctq6TCgbkqAL8+u3Eewz+6NnUnZePdGcwIxsVEf7++/v5+PTk5OPfz87IwLqzbmJUS/79/f369/f29vLw7eW2rYqBUD45OCezmy2uAAACB0lEQVRYw83WaVOjQBCA4d6F5RIimGSTaOKRmBh1Xe9b977vo2dX/f8/RAUqA9gDDVVW+Xycqnmhmqkp4CGb/TVwpm+dnI+grOC07mJC1+uvAJ/pWXiXPWgAizGPCjsOIzGU2wkzBhSoYwHbzx38Lhb6aIKSaSGHo5yehizagnI/l0e+v4Zs2iIxPwvVLi4v1zDFgKwdVHj2flVEmqvbk1U9e7KPVc9eFwlTOOFCyjLS3oqUKeXHdJG0IdQBfRYkQ/H+IieAdbm/0aMDH3ID+ngSOFfMX+QGUB6GQzrwQiQ0n97YxqRWAyK+Tgc+y+3r76hz+jMOnCAt8fg3SKnFAQ9J/2TgOZK6caBbGHiFtL/h/hEWBh4hbRAGzqoHopulwwuoL5bF6gE7DNSqB2buKfDkcUQGNuOVDWZAqFyQgQV+4DWmzYeBJX5gDtPaYeCUHdjEjLq8UFmBL5jRCQOBxQ28zAZMCNncwBqm6QGQU5z7H7pK3AfRSnaGBxD5XfUkOhBzKwbGEHOqBQ7lb6VVKWCS/2b8QA+kwKoQMCHBKR84gBS3bED304GhVjLQgYy+VipwBHcclwm4QLD5gRaQ9rmBlg+0I15g1weVaU6gDTn+tIoCegfy1fID9goUGbbVgZ4BHMueTgZsowFMfr9tZQL7SyMoJTB/fNvb+iREc2vv6/ezMTxY13mjcPQwP8Z3AAAAAElFTkSuQmCC"
+								alt="Facebook"
+							/>
+						</a>
+					</span>
+					<span class="tile">
+						<a
+							href="https://www.linkedin.com/in/mpaone"
+							target="_blank"
+						>
+							<img
+								src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAMAAACdt4HsAAAAP1BMVEUAAAAoZ7IoZ7MoZ7EmZrIoZ7MoZ7IpZ7EtWpYoZrEoZ7IoZ7QmZrMoa7woZ7IoZ7IoZ7MoaLAnZ7Moaa8oZ7JlM7VoAAAAFHRSTlMA87SUPPrDfgWsb1IoE/Dfy3hUM2j1/FcAAAC2SURBVFjD7ddbCsMgEEDR2zTm1fTt/tdaQlBpkMLMNFCL988hnB8jKHD26k4A3hQMNqDHG6vAlwHHkh54sqYFHCElQGy0ApQPOB3gjbuQBMOv3AOu6MO0L9Cw1H0ADoQyu0pKA3S8JQYmNkkBtk0CIJ8ZGK0AcmCe1UCaaIH0uRbwoRuhiw5Is7sVaCXAIwMMEuCYAajADwBtBSqwF+Ca0LqOy2sC4qwr8Ybyz4D56YsNwPz8fwGfs+rU4lNiBQAAAABJRU5ErkJggg=="
+								alt="LinkedIn"
+							/>
+						</a>
+					</span>
+					<span class="tile">
+						<a href="https://github.com/Bo0m" target="_blank">
+							<img
+								src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAMAAACdt4HsAAAAllBMVEUAAAAXFRYXFRYXFRYXFRYXFRYXFRYXFRYXFRYXFRYXFRYXFRYXFRYXFRYXFRYXFRYXFRYXFRYXFRYXFRYXFRYXFRYXFRYXFRYXFRYXFRYXFRYXFRYXFRYXFRYXFRYXFRYXFRYXFRYXFRYXFRYXFRYXFRYXFRYXFRYXFRYXFRYXFRYXFRYXFRYXFRYXFRYXFRYXFRYXFRaeuVikAAAAMXRSTlMAD/rp3F4J96CaQCrkzb5NIPNuZRqvfXQVBe3Hq6aQiDff14J5UjLUjSQHA7aiSJRYSmMv2QAAApZJREFUWMPN1tlyqkAQBuBfWWQxKBwU0Yi4J2bt93+5k6LI0IMDtHVuzneXKtLl9Ez/M+gyd3aLqxUTxdZ1sXPmeMRb4O+pZe8Hb5BZHadkND2uBP+eFhPqNClS9MuzmHrFWY4elwMNOlzQKRmTwDiBmftMQs8uDEYbEtuMDP//RA94uqvgbughm/YqFvSgBTQZPSwDU6r9Cy7OdtJ5ELfOJVC7WUK52ao5VT9PazJYn6rOqWbbN1VgqT56qbekICIr8nZZkmQ7L7KIqKgb/6I+XqrRb36zow61M9fTQR1gp1nR7yc+KZ8Y9EmKX1dnEzDDoBmbijlfVOUPBv0h0luWW9T4wqAvali5+klqGwc9EelL/uCjXmJQyUPjAwBfwRICS74GIOSx60LA5aEdak09QeSkbVvB/nqFyCs1CryzFUCIreEdNikRhCJSbL4JWwht2YyDpYcHIY9lDLSYE+IBCvq3HhBfgg0hmy2BN3HsQsRl02BpwxVAJNDGl9+oO4js+D2LI38HvYleUPz9dNTz5BsC33qirIixXUEL98SsWhHlY5DfjsAjcUtJHvEWVJHE+b2rcH3ShPixIY3dc7mcbdJs2GUXBTO/PtbXZG4MouxACr9K82kVR+HPJ+qLvZfNbuwBdV5up4a3b84vq/in3Mrm6WBOAMNFmF/V32UTNSMwI9OT45q3pmMSsl0qoHmhe8Hd4XhnkzIzvgq6Dp1rN9tafthr+9m5QTMnxXjsw7gezi4jaonD1hGhyllc4Gx+eEzOkgLmp0xSR0wpKZDAwBnXORktFpv1qKfA2OkIS4saPQWszvBNI0mBKEW3JB4qECfolf6OTQpORaeXYkjoVc1cGQqMvRAS6elA2/s3weGU4n/0F498RcyRNKEeAAAAAElFTkSuQmCC"
+								alt="GitHub"
+							/>
+						</a>
+					</span>
+				</div>
+			</div>
+		</div>
+		<% if(htmlWebpackPlugin.files.chunks.body) { %>
+		<script src="<%= htmlWebpackPlugin.files.chunks.body.entry %>"></script>
+		<% } %>
+	</body>
+</html>
